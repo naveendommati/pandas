@@ -294,3 +294,13 @@ print(data['column1'].corr(data['column3']))
 
 Q20. How do you select specific columns in a DataFrame using their labels?
 answer:--
+import pandas as pd
+
+#create DataFrame
+df = pd.DataFrame({'mavs': [10, 12, 14, 15, 19, 22, 27],
+                   'cavs': [18, 22, 19, 14, 14, 11, 20],
+                   'hornets': [5, 7, 7, 9, 12, 9, 14],
+                   'spurs': [10, 12, 14, 13, 13, 19, 22],
+                   'nets': [10, 14, 25, 22, 25, 17, 12]})
+#select column with name 'spurs'
+df.loc[:, 'spurs']

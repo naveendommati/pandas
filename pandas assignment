@@ -23,7 +23,6 @@ print(result)
 Q3. How do you select rows from a Pandas DataFrame based on a condition?
 answer:-- # importing pandas
 import pandas as pd
-
 record = {
 'Name': ['Ankit', 'Amit', 'Aishwarya', 'Priyanka', 'Priya', 'Shaurya' ],
 'Age': [21, 19, 20, 18, 17, 21],

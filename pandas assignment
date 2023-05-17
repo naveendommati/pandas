@@ -1,0 +1,74 @@
+Q1. How do you load a CSV file into a Pandas DataFrame?
+answer:--
+import pandas as pd
+df = pd.read_csv('data.csv')
+print(df.to_string())
+
+Q2. How do you check the data type of a column in a Pandas DataFrame?
+answer:--# importing pandas package
+import pandas as pd
+
+# create a Pandas DataFrame
+df = pd.DataFrame({'Col1':[4.1, 23.43], 'Col2':['a', 'w'], 'Col3':[1, 8]})
+
+print("DataFrame:")
+print(df)
+
+# apply the dtype attribute
+result = df.dtypes
+
+print("Output:")
+print(result)
+
+Q3. How do you select rows from a Pandas DataFrame based on a condition?
+answer:-- # importing pandas
+import pandas as pd
+
+record = {
+'Name': ['Ankit', 'Amit', 'Aishwarya', 'Priyanka', 'Priya', 'Shaurya' ],
+'Age': [21, 19, 20, 18, 17, 21],
+'Stream': ['Math', 'Commerce', 'Science', 'Math', 'Math', 'Science'],
+'Percentage': [88, 92, 95, 70, 65, 78] }
+
+# create a dataframe
+dataframe = pd.DataFrame(record, columns = ['Name', 'Age', 'Stream', 'Percentage'])
+
+print("Given Dataframe :\n", dataframe)
+
+# selecting rows based on condition
+rslt_df = dataframe[dataframe['Percentage'] > 80]
+
+print('\nResult dataframe :\n', rslt_df)
+
+
+Q4. How do you rename columns in a Pandas DataFrame?
+answer:-- import pandas as pd
+students = {
+    "firstname": ["John", "Jane", "Jade"], 
+    "lastname": ["Doe", "Done", "Do"]
+}
+# convert student names into a Dataframe
+df = pd.DataFrame(students)
+df.rename(columns={"firstname": "FIRSTNAME", "lastname": "LASTNAME"}, inplace=True)
+print(df)
+
+
+Q5. How do you drop columns in a Pandas DataFrame?
+answer:--# Import pandas package
+import pandas as pd
+
+# create a dictionary with five fields each
+data = {
+	'A': ['A1', 'A2', 'A3', 'A4', 'A5'],
+	'B': ['B1', 'B2', 'B3', 'B4', 'B5'],
+	'C': ['C1', 'C2', 'C3', 'C4', 'C5'],
+	'D': ['D1', 'D2', 'D3', 'D4', 'D5'],
+	'E': ['E1', 'E2', 'E3', 'E4', 'E5']}
+
+# Convert the dictionary into DataFrame
+df = pd.DataFrame(data)
+
+# Remove column name 'A'
+df.drop(['A'], axis=1)
+
+

@@ -71,4 +71,226 @@ df = pd.DataFrame(data)
 # Remove column name 'A'
 df.drop(['A'], axis=1)
 
+Q6. How do you find the unique values in a column of a Pandas DataFrame?
+answer:--
+# Import pandas package
+import pandas as pd
 
+# create a dictionary with five fields each
+data = {
+	'A':['A1', 'A2', 'A3', 'A4', 'A5'],
+	'B':['B1', 'B2', 'B3', 'B4', 'B4'],
+	'C':['C1', 'C2', 'C3', 'C3', 'C3'],
+	'D':['D1', 'D2', 'D2', 'D2', 'D2'],
+	'E':['E1', 'E1', 'E1', 'E1', 'E1'] }
+
+# Convert the dictionary into DataFrame
+df = pd.DataFrame(data)
+
+# Get the unique values of 'E' column
+df.E.unique()
+
+Q7. How do you find the number of missing values in each column of a Pandas DataFrame?
+answer:--
+# importing pandas as pd
+import pandas as pd
+
+# importing numpy as np
+import numpy as np
+
+# dictionary of lists
+dict = {'First Score':[100, 90, np.nan, 95],
+		'Second Score': [30, 45, 56, np.nan],
+		'Third Score':[np.nan, 40, 80, 98]}
+
+# creating a dataframe from list
+df = pd.DataFrame(dict)
+
+# using isnull() function
+df.isnull()
+
+
+Q8. How do you fill missing values in a Pandas DataFrame with a specific value?
+answer:-- newdf = df.fillna(222222)
+
+Q9. How do you concatenate two Pandas DataFrames?
+answer:--import pandas as pd
+import numpy as np
+ 
+df1 = pd.DataFrame(np.random.randint(25, size=(4, 4)),
+                   index=["1", "2", "3", "4"],
+                   columns=["A", "B", "C", "D"])
+ 
+df2 = pd.DataFrame(np.random.randint(25, size=(6, 4)),
+                   index=["5", "6", "7", "8", "9", "10"],
+                   columns=["A", "B", "C", "D"])
+# concatenating df1 and df2 along rows
+vertical_concat = pd.concat([df1, df2], axis=0)
+ display(vertical_concat)
+ 
+ Q10. How do you merge two Pandas DataFrames on a specific column?
+ answer:--
+ # importing modules
+import pandas as pd
+
+# creating a dataframe
+df1 = pd.DataFrame({'Name':['Raju', 'Rani', 'Geeta', 'Sita', 'Sohit'],
+					'Marks':[80, 90, 75, 88, 59]})
+
+# creating another dataframe with different data
+df2 = pd.DataFrame({'Name':['Raju', 'Divya', 'Geeta', 'Sita'],
+					'Grade':['A', 'A', 'B', 'A'],
+					'Rank':[3, 1, 4, 2 ],
+					'Gender':['Male', 'Female', 'Female', 'Female']})
+# display df1
+display(df1)
+# display df2
+display(df2)
+
+# applying merge
+df1.merge(df2[['Name', 'Grade', 'Rank']])
+
+Q11. How do you group data in a Pandas DataFrame by a specific column and apply an aggregation function?
+answer:-- 
+grouped_single = df.groupby('Team').agg({'Age': ['mean', 'min', 'max']})
+print(grouped_single)
+
+Q12. How do you pivot a Pandas DataFrame?		   
+answer:---
+The pivot() function is used to reshaped a given DataFrame organized by given index / column values
+
+Q13. How do you change the data type of a column in a Pandas DataFrame?
+answer:--
+# importing pandas as pd
+import pandas as pd
+
+# sample dataframe
+df = pd.DataFrame({
+	'A': [1, 2, 3, 4, 5],
+	'B': ['a', 'b', 'c', 'd', 'e'],
+	'C': [1.1, '1.0', '1.3', 2, 5]})
+
+# converting all columns to string type
+df = df.astype(str)
+print(df.dtypes)
+
+# using dictionary to convert specific columns
+convert_dict = {'A': int,
+                'C': float}
+                
+df = df.astype(convert_dict)
+print(df.dtypes)
+
+Q14. How do you sort a Pandas DataFrame by a specific column?
+answer:--# import pandas library as pd
+import pandas as pd
+
+# List of Tuples
+students = [('Ankit', 22, 'Up', 'Geu'),
+		('Ankita', 31, 'Delhi', 'Gehu'),
+		('Rahul', 16, 'Tokyo', 'Abes'),
+		('Simran', 41, 'Delhi', 'Gehu'),
+		('Shaurya', 33, 'Delhi', 'Geu'),
+		('Harshita', 35, 'Mumbai', 'Bhu' ),
+		('Swapnil', 35, 'Mp', 'Geu'),
+		('Priya', 35, 'Uk', 'Geu'),
+		('Jeet', 35, 'Guj', 'Gehu'),
+		('Ananya', 35, 'Up', 'Bhu')
+			]
+
+# Create a DataFrame object from
+# list of tuples with columns
+# and indices.
+details = pd.DataFrame(students, columns =['Name', 'Age', 'Place', 'College'],
+				index =[ 'b', 'c', 'a', 'e', 'f', 'g', 'i', 'j', 'k', 'd'])
+
+# Sort the rows of dataframe by 'Name' column
+result_df = details.sort_values(by = 'Name')
+
+# show the resultant Dataframe
+result_df
+
+Q15. How do you create a copy of a Pandas DataFrame?
+answer:-- import pandas as pd
+
+data = {
+  "name": ["Sally", "Mary", "John"],
+  "qualified": [True, False, False]
+}
+
+df = pd.DataFrame(data)
+print(df)
+
+#Make a copy:
+
+newdf = df.copy()
+
+print(newdf)
+
+Q16. How do you filter rows of a Pandas DataFrame by multiple conditions?
+answer:--# import module
+import pandas as pd
+
+# assign data
+dataFrame = pd.DataFrame({'Name': [' RACHEL ', ' MONICA ', ' PHOEBE ',
+								' ROSS ', 'CHANDLER', ' JOEY '],
+						
+						'Age': [30, 35, 37, 33, 34, 30],
+						
+						'Salary': [100000, 93000, 88000, 120000, 94000, 95000],
+						
+						'JOB': ['DESIGNER', 'CHEF', 'MASUS', 'PALENTOLOGY',
+								'IT', 'ARTIST']})
+# filter dataframe
+display(dataFrame.loc[(dataFrame['Salary']>=100000) & (dataFrame['Age']< 40) & (dataFrame['JOB'].str.startswith('D')),
+					['Name','JOB']])
+
+Q17. How do you calculate the mean of a column in a Pandas DataFrame?
+answer:-- # importing pandas as pd
+import pandas as pd
+
+# Creating the dataframe
+df = pd.DataFrame({"A":[12, 4, 5, 44, 1],
+				"B":[5, 2, 54, 3, 2],
+				"C":[20, 16, 7, 3, 8],
+				"D":[14, 3, 17, 2, 6]})
+
+df.mean(axis = 0)
+
+Q18. How do you calculate the standard deviation of a column in a Pandas DataFrame?
+answer:--
+import pandas as pd
+import numpy as np
+df = pd.DataFrame({'age': [18, 19, 20, 18, 20, 21, 18, 19, 20, 21],
+                   'height': [192, 189, 157, 178, 189, 201, 210, 189, 198, np.nan],
+                   'weight': [69, 72, 73, 87, 89, 100, 98, 89, 72, np.nan]})
+df.std()
+
+output:--
+age        1.173788
+height    15.081261
+weight    11.935009
+
+
+Q19. How do you calculate the correlation between two columns in a Pandas DataFrame?
+
+# import pandas module
+import pandas as pd
+
+# create dataframe with 3 columns
+data = pd.DataFrame({
+	"column1": [12, 23, 45, 67],
+	"column2": [67, 54, 32, 1],
+	"column3": [34, 23, 56, 23]
+})
+# correlation between column 1 and column2
+print(data['column1'].corr(data['column2']))
+ 
+# correlation between column 2 and column3
+print(data['column2'].corr(data['column3']))
+ 
+# correlation between column 1 and column3
+print(data['column1'].corr(data['column3']))
+
+Q20. How do you select specific columns in a DataFrame using their labels?
+answer:--
